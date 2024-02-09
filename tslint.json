@@ -1,0 +1,10 @@
+{
+  "extends": "tslint-config-standard",
+  "rules": {
+    "no-unnecessary-type-assertion": false,
+    "unified-signatures": false,
+    "return-undefined": false,
+    "space-before-function-paren": false,
+    "indent": [false,"spaces",4]
+  }
+}
