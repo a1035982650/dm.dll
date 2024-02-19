@@ -61,3 +61,8 @@ export const enum KeyState {
   Up,
   Down
 }
+
+export const enum Direction {
+  left,
+  right
+}

@@ -22,7 +22,8 @@
   "author": "aweiu",
   "license": "ISC",
   "dependencies": {
-    "winax": "~1.18.0"
+    "winax": "~1.18.0",
+    "wow-state-machine": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "^10.3.0",

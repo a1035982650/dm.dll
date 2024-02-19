@@ -1,12 +1,14 @@
-import { Coordinate, DmRet, ErrorDisplay, FindDir, FindRet, GetWindowFlag, KeyState, OcrRet, Size, WindowState } from './types';
-declare type DisplayType = 'normal' | 'gdi' | 'gdi2' | 'dx' | 'dx2' | 'dx3';
-declare type MouseType = 'normal' | 'windows' | 'windows2' | 'windows3' | 'dx' | 'dx2';
-declare type KeypadType = 'normal' | 'windows' | 'dx';
+import winax = require("winax");
+import { Coordinate, DmRet, ErrorDisplay, FindDir, FindRet, GetWindowFlag, KeyState, OcrRet, Size, WindowState } from "./types";
+declare type DisplayType = "normal" | "gdi" | "gdi2" | "dx" | "dx2" | "dx3";
+declare type MouseType = "normal" | "windows" | "windows2" | "windows3" | "dx" | "dx2";
+declare type KeypadType = "normal" | "windows" | "dx";
 declare type FindPicDir = FindDir.LeftToRightAndTopToBottom | FindDir.LeftToRightAndBottomToTop | FindDir.RightToLeftAndTopToBottom | FindDir.RightToLeftAndBottomToTop;
 declare function setMouseRange(): void;
 declare function setMouseRange(x1: number, y1: number, x2: number, y2: number): void;
 declare const _default: {
     dll: any;
+    getDm(): winax.Object;
     getPath(): string;
     setPath(path: string): DmRet;
     setErrorDisplay(flag: ErrorDisplay): DmRet;
@@ -28,6 +30,7 @@ declare const _default: {
     keyUp(keyCode: number): DmRet;
     findWindow(className: string, title: string, parentHWnd?: number | undefined): number | undefined;
     enumWindow(className: string, title: string, filter: number, parentHWnd?: number): number[];
+    enumWindowByClassName(className: string): number[];
     getWindow(hWnd: number, flag: GetWindowFlag): number;
     getWindowClass(hWnd: number): string;
     getPointWindow(x: number, y: number): number;
@@ -35,6 +38,7 @@ declare const _default: {
     moveWindow(hWnd: number, x: number, y: number): DmRet;
     setWindowSize(hWnd: number, width: number, height: number): DmRet;
     setWindowState(hWnd: number, state: WindowState): DmRet;
+    setWindowTitle(hWnd: number, title: string): DmRet;
     sendPaste(hWnd: number): DmRet;
     sendString(hWnd: number, content: string): DmRet;
     bindWindow(hWnd: number, display: DisplayType, mouse: MouseType, keypad: KeypadType, mode: 0 | 2 | 4): DmRet;
